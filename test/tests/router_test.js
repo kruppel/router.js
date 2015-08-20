@@ -6,6 +6,8 @@ var router, url, handlers, expectedUrl, actions;
 
 module("The router", {
   setup: function() {
+    Router.Promise = Promise;
+
     handlers = {};
     expectedUrl = null;
 
@@ -33,6 +35,12 @@ module("The router", {
         });
       });
     });
+  },
+
+  teardown: function() {
+    var self = typeof window !== 'undefined' ? window : global;
+
+    Router.Promise = self.Promise;
   }
 });
 
