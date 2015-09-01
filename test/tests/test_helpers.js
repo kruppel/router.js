@@ -1,10 +1,12 @@
 import { Backburner } from "backburner";
 import { resolve, configure, reject, Promise } from "rsvp";
+import Router from 'router';
 import { oCreate } from 'router/utils';
 
 var slice = Array.prototype.slice;
 
 QUnit.config.testTimeout = 1000;
+Router.configure('Promise', Promise);
 
 var bb = new Backburner(['promises']);
 function customAsync(callback, promise) {
